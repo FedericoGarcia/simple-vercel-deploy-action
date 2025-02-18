@@ -1,0 +1,44 @@
+name: simple-vercel-deploy-action
+description: Deploy the project to Vercel
+author: Federico García
+branding:
+  icon: 'package'
+  color: 'black'
+
+inputs:
+  vercel_team_id:
+    description: 'The Vercel Organization/Team ID'
+    required: true
+  vercel_project_id:
+    description: 'The Vercel Project ID'
+    required: true
+  vercel_account_token:
+    description: 'The Vercel Account Token'
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Set up environment variables
+      shell: bash
+      run: |
+        echo "VERCEL_TELEMETRY_DISABLED=1" >> "${GITHUB_ENV}"
+        echo "VERCEL_ORG_ID=${{ inputs.vercel_team_id }}" >> "${GITHUB_ENV}"
+        echo "VERCEL_PROJECT_ID=${{ inputs.vercel_project_id }}" >> "${GITHUB_ENV}"
+    - name: Install Vercel CLI
+      shell: bash
+      run: npm install --global vercel@41
+    - name: Pull environment variables from Vercel
+      shell: bash
+      run: vercel pull --yes --environment=production --token=${{ inputs.vercel_account_token }}
+    - name: Build
+      shell: bash
+      run: vercel build --prod --token=${{ inputs.vercel_account_token }}
+    - name: Deploy to Vercel
+      shell: bash
+      run: vercel deploy --prebuilt --prod --token=${{ inputs.vercel_account_token }}
+    - name: Remove environment variables
+      shell: bash
+      run: |
+        echo "VERCEL_ORG_ID=" >> "${GITHUB_ENV}"
+        echo "VERCEL_PROJECT_ID=" >> "${GITHUB_ENV}"
