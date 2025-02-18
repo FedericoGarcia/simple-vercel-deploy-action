@@ -41,7 +41,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Vercel deploy
-        uses: FedericoGarcia/simple-vercel-deploy-action@v1
+        uses: FedericoGarcia/simple-vercel-deploy-action@v0.1.2
         with:
           vercel_team_id: ${{ vars.VERCEL_TEAM_ID }}
           vercel_project_id: ${{ vars.VERCEL_PROJECT_ID }}
@@ -68,7 +68,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Vercel deploy
-        uses: FedericoGarcia/simple-vercel-deploy-action@v1
+        uses: FedericoGarcia/simple-vercel-deploy-action@v0.1.2
         with:
           vercel_team_id: ${{ vars.VERCEL_TEAM_ID }}
           vercel_project_id: ${{ vars.VERCEL_PROJECT_ID_DEVELOPMENT }}
@@ -93,7 +93,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Vercel deploy
-        uses: FedericoGarcia/simple-vercel-deploy-action@v1
+        uses: FedericoGarcia/simple-vercel-deploy-action@v0.1.2
         with:
           vercel_team_id: ${{ vars.VERCEL_TEAM_ID }}
           vercel_project_id: ${{ vars.VERCEL_PROJECT_ID_PRODUCTION }}
