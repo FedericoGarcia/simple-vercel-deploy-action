@@ -53,7 +53,7 @@ jobs:
 #### `.github/workflows/vercel-deploy-development.yml`
 
 ```yaml
-name: Vercel deploy
+name: Vercel deploy development
 
 on:
   push:
@@ -78,7 +78,7 @@ jobs:
 #### `.github/workflows/vercel-deploy-production.yml`
 
 ```yaml
-name: Vercel deploy
+name: Vercel deploy production
 
 on:
   push:
