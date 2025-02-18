@@ -19,9 +19,11 @@ This action allows you to deploy your project to Vercel with minimal configurati
 
 **Required** The Vercel Account Token.
 
-## Example
+## Examples
 
-### `.github/workflows/vercel-deploy.yml`
+### Basic usage
+
+#### `.github/workflows/vercel-deploy.yml`
 
 ```yaml
 name: Vercel deploy
@@ -43,6 +45,58 @@ jobs:
         with:
           vercel_team_id: ${{ vars.VERCEL_TEAM_ID }}
           vercel_project_id: ${{ vars.VERCEL_PROJECT_ID }}
+          vercel_account_token: ${{ secrets.VERCEL_ACCOUNT_TOKEN }}
+```
+
+### Multiple environments (projects)
+
+#### `.github/workflows/vercel-deploy-development.yml`
+
+```yaml
+name: Vercel deploy
+
+on:
+  push:
+    branches:
+      - development
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Vercel deploy
+        uses: FedericoGarcia/simple-vercel-deploy-action@v1
+        with:
+          vercel_team_id: ${{ vars.VERCEL_TEAM_ID }}
+          vercel_project_id: ${{ vars.VERCEL_PROJECT_ID_DEVELOPMENT }}
+          vercel_account_token: ${{ secrets.VERCEL_ACCOUNT_TOKEN }}
+```
+
+#### `.github/workflows/vercel-deploy-production.yml`
+
+```yaml
+name: Vercel deploy
+
+on:
+  push:
+    branches:
+      - production
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Vercel deploy
+        uses: FedericoGarcia/simple-vercel-deploy-action@v1
+        with:
+          vercel_team_id: ${{ vars.VERCEL_TEAM_ID }}
+          vercel_project_id: ${{ vars.VERCEL_PROJECT_ID_PRODUCTION }}
           vercel_account_token: ${{ secrets.VERCEL_ACCOUNT_TOKEN }}
 ```
 
