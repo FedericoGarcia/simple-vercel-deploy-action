@@ -1,5 +1,5 @@
 name: simple-vercel-deploy-action
-description: Deploy the project to Vercel
+description: Deploy a project in Vercel easily
 author: Federico García
 branding:
   icon: 'package'
