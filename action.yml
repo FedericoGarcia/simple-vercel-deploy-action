@@ -27,7 +27,7 @@ runs:
         echo "VERCEL_PROJECT_ID=${{ inputs.vercel_project_id }}" >> "${GITHUB_ENV}"
     - name: Install Vercel CLI
       shell: bash
-      run: npm install --global vercel@46
+      run: npm install --global vercel@47
     - name: Pull environment variables from Vercel
       shell: bash
       run: vercel pull --yes --environment=production --token=${{ inputs.vercel_account_token }}
