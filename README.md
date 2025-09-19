@@ -12,21 +12,21 @@ This action allows you to deploy your project to Vercel with minimal configurati
 **Required** | The Vercel Organization/Team ID.
 
 More info:
-[https://vercel.com/docs/accounts/create-a-team#find-your-team-id](https://vercel.com/docs/accounts/create-a-team#find-your-team-id)
+<https://vercel.com/docs/accounts#find-your-team-id>
 
 ### `vercel_project_id`
 
 **Required** | The Vercel Project ID.
 
 More info:
-[https://vercel.com/docs/projects/project-configuration/general-settings#project-id](https://vercel.com/docs/projects/project-configuration/general-settings#project-id)
+<https://vercel.com/docs/projects/project-configuration/general-settings#project-id>
 
 ### `vercel_account_token`
 
 **Required** | The Vercel Account Token.
 
 More info:
-[https://vercel.com/guides/how-do-i-use-a-vercel-api-access-token#creating-an-access-token](https://vercel.com/guides/how-do-i-use-a-vercel-api-access-token#creating-an-access-token)
+<https://vercel.com/guides/how-do-i-use-a-vercel-api-access-token#creating-an-access-token>
 
 ## Examples
 
